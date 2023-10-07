@@ -118,6 +118,8 @@ class DeviceType(collections.abc.Mapping):
       return self.is_iphone() or self.is_ipad()
     elif platform_type == "tvos":
       return self.is_apple_tv()
+    elif platform_type == "visionos":
+      return self.is_apple_vision()
     elif platform_type == "watchos":
       return self.is_apple_watch()
     elif platform_type == "visionos":
@@ -129,6 +131,9 @@ class DeviceType(collections.abc.Mapping):
 
   def is_apple_tv(self) -> bool:
     return self.has_product_family_or_identifier("Apple TV")
+
+  def is_apple_vision(self) -> bool:
+    return self.has_product_family_or_identifier("Apple Vision")
 
   def is_apple_watch(self) -> bool:
     return self.has_product_family_or_identifier("Apple Watch")
